@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Broadway Meknès - Menu Urbain & Vintage</title>
+    <title>Broadway Meknès - Menu Complet Urbain & Vintage</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Special+Elite&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -41,7 +41,6 @@
             position: relative;
             overflow: hidden;
         }
-        /* Effet de texture sur les cartes */
         .menu-card::after {
             content: "";
             position: absolute;
@@ -49,16 +48,6 @@
             background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
             opacity: 0.05;
             pointer-events: none;
-        }
-        .menu-card:active {
-            transform: translate(3px, 3px);
-            box-shadow: 2px 2px 0px var(--urban-black);
-        }
-        @media (min-width: 768px) {
-            .menu-card:hover {
-                transform: translate(-3px, -3px);
-                box-shadow: 10px 10px 0px var(--accent-red);
-            }
         }
         .category-pill {
             font-family: 'Bebas Neue', cursive;
@@ -71,7 +60,7 @@
             background-color: var(--accent-red);
             color: white;
             border-color: var(--urban-black);
-            transform: rotate(-2deg) scale(1.1);
+            transform: rotate(-2deg) scale(1.05);
             box-shadow: 4px 4px 0px var(--urban-black);
         }
         .price-tag {
@@ -88,7 +77,6 @@
             border: 3px solid var(--urban-black);
             box-shadow: 5px 5px 0px var(--urban-black);
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            -webkit-tap-highlight-color: transparent;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -104,7 +92,6 @@
             pointer-events: none;
         }
 
-        /* Ajustements mobile */
         @media (max-width: 640px) {
             .vintage-title { font-size: 3.5rem; line-height: 1; }
         }
@@ -112,7 +99,7 @@
 </head>
 <body class="p-4 sm:p-6 md:p-12">
 
-    <div class="stencil-bg top-20 -left-20">FOOD</div>
+    <div class="stencil-bg top-20 -left-20">BROADWAY</div>
     <div class="stencil-bg bottom-40 -right-20 rotate-90">MEKNES</div>
 
     <!-- Bouton Flottant Glovo -->
@@ -121,7 +108,7 @@
         Commander sur Glovo
     </a>
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="text-center mb-10 sm:mb-16 relative">
         <div class="inline-block border-4 border-black bg-[#fdfaf3] py-6 px-8 sm:px-16 shadow-[8px_8px_0px_#d42020]">
             <h1 class="vintage-title text-6xl sm:text-7xl md:text-8xl mb-2 text-black">BROADWAY</h1>
@@ -130,7 +117,7 @@
         <p class="typewriter mt-6 text-xs sm:text-sm md:text-base font-bold uppercase tracking-widest text-red-800">L'Art du Street Food Vintage</p>
     </header>
 
-    <!-- Navigation Filtres - Scrollable sur mobile -->
+    <!-- Navigation -->
     <div class="flex flex-nowrap overflow-x-auto gap-4 mb-12 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:justify-center sm:flex-wrap">
         <button class="category-pill border-2 border-black px-6 py-2 text-xl active shadow-[3px_3px_0px_black]" onclick="filterMenu('all', this)">L'Intégral</button>
         <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('salades', this)">Salades</button>
@@ -151,7 +138,7 @@
                 <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Salad Broadway</h3>
                 <span class="price-tag">72 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90 leading-relaxed">Recette secrète. Notre chef a mixé le meilleur de Broadway dans une assiette.</p>
+            <p class="typewriter text-sm opacity-90">Composition spéciale de la maison. La signature fraîcheur.</p>
         </div>
 
         <div class="menu-card p-6" data-category="salades">
@@ -159,17 +146,75 @@
                 <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Salade César</h3>
                 <span class="price-tag">47 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90 leading-relaxed">Poulet grillé, laitue croquante, croûtons à l'ail et notre sauce César légendaire.</p>
+            <p class="typewriter text-sm opacity-90">Poulet grillé, laitue, tomate, croûtons, fromage, sauce César.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="salades">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Salade Chicken</h3>
+                <span class="price-tag">42 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90">Pennes, laitue, crispy poulet, maïs, sauce cocktail, tomates cerises.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="salades">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Frites</h3>
+                <span class="price-tag">13 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90">Portion classique, croustillante à souhait.</p>
+        </div>
+
+        <!-- TACOS -->
+        <div class="menu-card p-6" data-category="tacos">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Mixte</h3>
+                <span class="price-tag">63 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
+            <p class="typewriter text-xs mt-2 opacity-80">Mélange viande hachée et dinde.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="tacos">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos V. Hachée</h3>
+                <span class="price-tag">56 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="tacos">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Nuggets</h3>
+                <span class="price-tag">50 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="tacos">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Dinde</h3>
+                <span class="price-tag">42 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
         </div>
 
         <!-- BURGERS -->
         <div class="menu-card p-6 border-red-800" data-category="burgers">
-            <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] urban-font px-2 py-1 rotate-12">BEST SELLER</div>
+            <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] urban-font px-2 py-1 rotate-12">LEGENDARY</div>
             <div class="flex justify-between items-center mb-4">
                 <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Double Cheese</h3>
                 <span class="price-tag">53 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Double steak, cheddar fondant, oignons caramélisés. Le goût de la ville.</p>
+            <p class="typewriter text-sm opacity-90">Double steak, double cheddar, salade, tomate, oignons caramélisés.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="burgers">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Cheese Burger</h3>
+                <span class="price-tag">42 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90">Steak haché, cheddar, salade, tomate, oignons caramélisés.</p>
         </div>
 
         <div class="menu-card p-6" data-category="burgers">
@@ -177,17 +222,41 @@
                 <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Chicken Burger</h3>
                 <span class="price-tag">39 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Poulet pané maison, ultra-croustillant, servi avec notre sauce secrète.</p>
+            <p class="typewriter text-sm opacity-90">Poulet, cheddar, salade, tomate, oignons caramélisés.</p>
+        </div>
+
+        <!-- SANDWICHES -->
+        <div class="menu-card p-6" data-category="sandwiches">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich V. Hachée</h3>
+                <span class="price-tag">58 MAD</span>
+            </div>
+            <p class="typewriter text-xs opacity-90">Salade, tomate, oignons caramélisés, fromage, charcuterie. (Frites à part)</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="sandwiches">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich Crispy</h3>
+                <span class="price-tag">50 MAD</span>
+            </div>
+            <p class="typewriter text-xs opacity-90">Poulet croustillant, fromage, charcuterie, salade, tomate. (Frites à part)</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="sandwiches">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich Dinde</h3>
+                <span class="price-tag">47 MAD</span>
+            </div>
+            <p class="typewriter text-xs opacity-90">Dinde grillée, fromage, charcuterie, salade, tomate. (Frites à part)</p>
         </div>
 
         <!-- PIZZAS -->
-        <div class="menu-card p-6 border-double border-4 border-black" data-category="pizzas">
+        <div class="menu-card p-6 border-double border-4 border-black shadow-[8px_8px_0px_#1a1a1a]" data-category="pizzas">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="urban-font text-3xl uppercase text-red-700">Pizza Broadway</h3>
                 <span class="price-tag text-lg">67 MAD</span>
             </div>
-            <p class="typewriter text-sm font-bold mb-2">L'EXPÉRIENCE ULTIME</p>
-            <p class="typewriter text-xs opacity-90">Ingrédients premium sélectionnés chaque matin sur une pâte pétrie à la main.</p>
+            <p class="typewriter text-sm font-bold uppercase tracking-widest text-black">Recette Signature</p>
         </div>
 
         <div class="menu-card p-6" data-category="pizzas">
@@ -195,7 +264,29 @@
                 <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza 4 Saisons</h3>
                 <span class="price-tag">56 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Légumes du marché, mozzarella fondante et basilic frais.</p>
+            <p class="typewriter text-sm opacity-90">Mélange de légumes et ingrédients de saison.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="pizzas">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza V. Hachée</h3>
+                <span class="price-tag">53 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-6" data-category="pizzas">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza Thon</h3>
+                <span class="price-tag">47 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-6" data-category="pizzas">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza Marguerite</h3>
+                <span class="price-tag">42 MAD</span>
+            </div>
+            <p class="typewriter text-sm opacity-90">Sauce tomate, fromage, origan.</p>
         </div>
 
         <!-- PLATS & PASTICCIO -->
@@ -204,7 +295,21 @@
                 <h3 class="urban-font text-2xl uppercase text-yellow-500">Pasticcio Mixte</h3>
                 <span class="price-tag text-black">60 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-80">Le gratin urbain par excellence. Un mélange explosif de viandes et de fromage.</p>
+            <p class="typewriter text-sm opacity-80">Mélange de viandes, frites, béchamel et fromage gratiné.</p>
+        </div>
+
+        <div class="menu-card p-6" data-category="plats">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pasticcio V. H.</h3>
+                <span class="price-tag">53 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-6" data-category="plats">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pasticcio Dinde</h3>
+                <span class="price-tag">47 MAD</span>
+            </div>
         </div>
 
         <div class="menu-card p-6" data-category="plats">
@@ -212,20 +317,43 @@
                 <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Plat Escalope</h3>
                 <span class="price-tag">67 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Escalope de poulet tendre, frites maison et salade fraîche.</p>
+            <p class="typewriter text-sm opacity-90">Escalope de poulet servie avec ses accompagnements.</p>
         </div>
 
         <!-- BOISSONS -->
-        <div class="grid grid-cols-2 gap-6 mt-6 md:col-span-2" data-category="boissons">
-            <div class="border-4 border-black p-6 text-center bg-white shadow-[6px_6px_0px_#f59e0b]">
-                <p class="urban-font text-2xl text-red-700">Sodas 33cl</p>
-                <p class="price-tag text-lg inline-block my-2">11 MAD</p>
-                <p class="text-[10px] typewriter mt-2 font-bold uppercase">Fraîcheur immédiate</p>
-            </div>
-            <div class="border-4 border-black p-6 text-center bg-white shadow-[6px_6px_0px_#f59e0b]">
-                <p class="urban-font text-2xl text-red-700">Eau Minérale</p>
-                <p class="price-tag text-lg inline-block my-2">7 MAD</p>
-                <p class="text-[10px] typewriter mt-2 font-bold uppercase">Pureté Source</p>
+        <div class="md:col-span-2 mt-8" data-category="boissons">
+            <div class="bg-black text-white p-6 border-4 border-black shadow-[10px_10px_0px_#f59e0b]">
+                <h3 class="urban-font text-4xl mb-6 text-yellow-500 border-b-2 border-yellow-500 pb-2">REFRESHMENTS</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4">
+                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
+                        <span class="typewriter text-lg uppercase">Coca-Cola (33cl)</span>
+                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
+                        <span class="typewriter text-lg uppercase">Coca Zero (33cl)</span>
+                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
+                        <span class="typewriter text-lg uppercase">Fanta Orange</span>
+                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
+                        <span class="typewriter text-lg uppercase">Sprite</span>
+                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
+                        <span class="typewriter text-lg uppercase">Hawaï</span>
+                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
+                        <span class="typewriter text-lg uppercase">Pom's</span>
+                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    </div>
+                    <div class="flex justify-between items-baseline mt-4 bg-yellow-500 text-black p-2 transform -rotate-1">
+                        <span class="typewriter font-bold text-lg uppercase">Eau Minérale</span>
+                        <span class="font-bold text-lg">7 MAD</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -236,7 +364,7 @@
         <h2 class="vintage-title text-4xl sm:text-5xl mb-6 text-yellow-500">BROADWAY MEKNÈS</h2>
         <div class="typewriter text-xs sm:text-sm space-y-4 max-w-xs mx-auto px-4">
             <p class="italic">"On ne sert pas juste de la nourriture, on sert l'histoire de Broadway."</p>
-            <p class="font-bold border-2 border-yellow-500 inline-block px-4 py-1">#BROADWAYMKS</p>
+            <div class="font-bold border-2 border-yellow-500 inline-block px-4 py-1">#BROADWAYMKS</div>
         </div>
         <p class="mt-10 urban-font text-lg tracking-widest opacity-50">FAST FOOD • GASTRO • VINTAGE</p>
     </footer>
@@ -248,18 +376,14 @@
             
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
-            // Scroll fluide vers le bouton actif sur mobile
             btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
             items.forEach(item => {
                 if (category === 'all' || item.getAttribute('data-category') === category) {
-                    if (item.getAttribute('data-category') === 'boissons') {
-                        item.style.display = 'grid';
-                    } else {
+                    item.style.display = item.getAttribute('data-category') === 'boissons' ? 'block' : 'block';
+                    if(window.innerWidth >= 768 && item.getAttribute('data-category') === 'boissons') {
                         item.style.display = 'block';
                     }
-                    // Animation d'entrée
                     item.style.opacity = '0';
                     setTimeout(() => {
                         item.style.opacity = '1';
