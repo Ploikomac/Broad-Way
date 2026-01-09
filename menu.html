@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Broadway Meknès - Menu Complet Urbain & Vintage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Broadway Meknès - Menu Officiel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Special+Elite&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -14,359 +14,367 @@
             --accent-red: #d42020;
             --accent-yellow: #f59e0b;
         }
+
+        /* Fix pour empêcher le défilement horizontal */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--vintage-paper);
             background-image: url("https://www.transparenttextures.com/patterns/pinstripe-dark.png"), url("https://www.transparenttextures.com/patterns/aged-paper.png");
             color: var(--urban-black);
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         .vintage-title {
             font-family: 'Abril Fatface', serif;
             letter-spacing: 1px;
-            text-shadow: 3px 3px 0px var(--accent-red);
+            text-shadow: 2px 2px 0px var(--accent-red);
         }
+
         .urban-font {
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 2px;
         }
+
         .typewriter {
             font-family: 'Special Elite', cursive;
         }
+
         .menu-card {
             background: var(--card-paper);
             border: 3px solid var(--urban-black);
             box-shadow: 6px 6px 0px var(--urban-black);
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease;
             position: relative;
-            overflow: hidden;
+            width: 100%;
         }
-        .menu-card::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-            opacity: 0.05;
-            pointer-events: none;
-        }
+
         .category-pill {
             font-family: 'Bebas Neue', cursive;
             cursor: pointer;
             transition: all 0.2s;
             white-space: nowrap;
             background: var(--card-paper);
+            flex-shrink: 0;
         }
+
         .category-pill.active {
             background-color: var(--accent-red);
             color: white;
             border-color: var(--urban-black);
-            transform: rotate(-2deg) scale(1.05);
+            transform: scale(1.05);
             box-shadow: 4px 4px 0px var(--urban-black);
         }
+
         .price-tag {
             font-family: 'Special Elite', cursive;
             font-weight: bold;
             background: var(--accent-yellow);
             padding: 2px 8px;
-            transform: rotate(2deg);
             border: 1px solid var(--urban-black);
+            white-space: nowrap;
         }
+
         .glovo-btn {
             background-color: #ffc244;
             color: #00a082;
             border: 3px solid var(--urban-black);
-            box-shadow: 5px 5px 0px var(--urban-black);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 4px 4px 0px var(--urban-black);
         }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
+
+        /* Empêcher les éléments de déco de sortir de l'écran */
         .stencil-bg {
-            position: absolute;
-            font-size: 15rem;
+            position: fixed;
+            font-size: 12rem;
             font-family: 'Bebas Neue';
             color: black;
             opacity: 0.03;
             z-index: -1;
-            user-select: none;
             pointer-events: none;
+            white-space: nowrap;
         }
 
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         @media (max-width: 640px) {
-            .vintage-title { font-size: 3.5rem; line-height: 1; }
+            .vintage-title { font-size: 3rem; }
+            .stencil-bg { font-size: 6rem; }
         }
     </style>
 </head>
-<body class="p-4 sm:p-6 md:p-12">
+<body class="p-4 md:p-12">
 
-    <div class="stencil-bg top-20 -left-20">BROADWAY</div>
-    <div class="stencil-bg bottom-40 -right-20 rotate-90">MEKNES</div>
+    <!-- Éléments de fond fixes pour ne pas impacter le layout -->
+    <div class="stencil-bg" style="top: 10%; left: -5%;">BROADWAY</div>
+    <div class="stencil-bg" style="bottom: 10%; right: -5%; transform: rotate(-90deg);">MEKNES</div>
 
-    <!-- Bouton Flottant Glovo -->
-    <a href="https://glovoapp.com/en/ma/meknes/stores/broadway-mks" target="_blank" class="fixed bottom-6 right-4 left-4 sm:left-auto sm:right-6 z-50 glovo-btn flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold uppercase text-sm tracking-wider">
+    <!-- Bouton Glovo -->
+    <a href="https://glovoapp.com/en/ma/meknes/stores/broadway-mks" target="_blank" class="fixed bottom-6 right-4 left-4 sm:left-auto sm:right-6 z-50 glovo-btn flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold uppercase text-sm">
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
         Commander sur Glovo
     </a>
 
-    <!-- Header -->
-    <header class="text-center mb-10 sm:mb-16 relative">
-        <div class="inline-block border-4 border-black bg-[#fdfaf3] py-6 px-8 sm:px-16 shadow-[8px_8px_0px_#d42020]">
-            <h1 class="vintage-title text-6xl sm:text-7xl md:text-8xl mb-2 text-black">BROADWAY</h1>
-            <p class="urban-font text-xl sm:text-2xl md:text-3xl text-white bg-black inline-block px-4 py-1 transform -rotate-1">MEKNÈS • EST. 2024</p>
+    <!-- Header Centré -->
+    <header class="w-full max-w-4xl text-center mb-12">
+        <div class="inline-block border-4 border-black bg-white py-6 px-6 md:px-16 shadow-[6px_6px_0px_#d42020]">
+            <h1 class="vintage-title text-5xl md:text-7xl mb-2 text-black">BROADWAY</h1>
+            <p class="urban-font text-xl md:text-2xl text-white bg-black inline-block px-4 py-1">MEKNÈS • EST. 2024</p>
         </div>
-        <p class="typewriter mt-6 text-xs sm:text-sm md:text-base font-bold uppercase tracking-widest text-red-800">L'Art du Street Food Vintage</p>
+        <p class="typewriter mt-4 text-xs md:text-sm font-bold uppercase tracking-widest text-red-800">L'Art du Street Food Vintage</p>
     </header>
 
-    <!-- Navigation -->
-    <div class="flex flex-nowrap overflow-x-auto gap-4 mb-12 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:justify-center sm:flex-wrap">
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl active shadow-[3px_3px_0px_black]" onclick="filterMenu('all', this)">L'Intégral</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('salades', this)">Salades</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('tacos', this)">Tacos</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('burgers', this)">Burgers</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('sandwiches', this)">Sandwichs</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('pizzas', this)">Pizzas</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('plats', this)">Pasticcio</button>
-        <button class="category-pill border-2 border-black px-6 py-2 text-xl shadow-[3px_3px_0px_black]" onclick="filterMenu('boissons', this)">Boissons</button>
-    </div>
+    <!-- Navigation Filtres (Scroll horizontal bridé au centre) -->
+    <nav class="w-full max-w-6xl flex overflow-x-auto gap-3 mb-12 pb-4 no-scrollbar justify-start md:justify-center">
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg active" onclick="filterMenu('all', this)">L'Intégral</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('salades', this)">Salades</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('tacos', this)">Tacos</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('burgers', this)">Burgers</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('sandwiches', this)">Sandwichs</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('pizzas', this)">Pizzas</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('plats', this)">Pasticcio</button>
+        <button class="category-pill border-2 border-black px-5 py-2 text-lg" onclick="filterMenu('boissons', this)">Boissons</button>
+    </nav>
 
     <!-- Menu Grid -->
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8" id="menu-container">
+    <main class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6" id="menu-container">
         
         <!-- SALADES -->
-        <div class="menu-card p-6" data-category="salades">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Salad Broadway</h3>
+        <div class="menu-card p-5" data-category="salades">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Salad Broadway</h3>
                 <span class="price-tag">72 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Composition spéciale de la maison. La signature fraîcheur.</p>
+            <p class="typewriter text-xs opacity-90">Composition spéciale de la maison.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="salades">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Salade César</h3>
+        <div class="menu-card p-5" data-category="salades">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Salade César</h3>
                 <span class="price-tag">47 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Poulet grillé, laitue, tomate, croûtons, fromage, sauce César.</p>
+            <p class="typewriter text-xs opacity-90">Poulet grillé, laitue, tomate, croûtons, fromage, sauce César.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="salades">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Salade Chicken</h3>
+        <div class="menu-card p-5" data-category="salades">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Salade Chicken</h3>
                 <span class="price-tag">42 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Pennes, laitue, crispy poulet, maïs, sauce cocktail, tomates cerises.</p>
+            <p class="typewriter text-xs opacity-90">Pennes, croustillant de poulet, maïs, sauce cocktail, tomates cerises.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="salades">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Frites</h3>
+        <div class="menu-card p-5" data-category="salades">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Frites</h3>
                 <span class="price-tag">13 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Portion classique, croustillante à souhait.</p>
+            <p class="typewriter text-xs opacity-90">Portion classique, frites dorées.</p>
         </div>
 
         <!-- TACOS -->
-        <div class="menu-card p-6" data-category="tacos">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Mixte</h3>
+        <div class="menu-card p-5" data-category="tacos">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Mixte</h3>
                 <span class="price-tag">63 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
-            <p class="typewriter text-xs mt-2 opacity-80">Mélange viande hachée et dinde.</p>
+            <p class="typewriter text-xs opacity-80 italic">Servi avec frites et fromage. (V. Hachée & Dinde)</p>
         </div>
 
-        <div class="menu-card p-6" data-category="tacos">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos V. Hachée</h3>
+        <div class="menu-card p-5" data-category="tacos">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Viande Hachée</h3>
                 <span class="price-tag">56 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
+            <p class="typewriter text-xs opacity-80 italic">Servi avec frites et fromage.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="tacos">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Nuggets</h3>
+        <div class="menu-card p-5" data-category="tacos">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Nuggets</h3>
                 <span class="price-tag">50 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
+            <p class="typewriter text-xs opacity-80 italic">Servi avec frites et fromage.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="tacos">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Dinde</h3>
+        <div class="menu-card p-5" data-category="tacos">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Tacos Dinde</h3>
                 <span class="price-tag">42 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90 italic">Servi avec frites et fromage.</p>
+            <p class="typewriter text-xs opacity-80 italic">Servi avec frites et fromage.</p>
         </div>
 
         <!-- BURGERS -->
-        <div class="menu-card p-6 border-red-800" data-category="burgers">
-            <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] urban-font px-2 py-1 rotate-12">LEGENDARY</div>
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Double Cheese</h3>
+        <div class="menu-card p-5 border-red-700 shadow-[6px_6px_0px_#d42020]" data-category="burgers">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Double Cheese</h3>
                 <span class="price-tag">53 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Double steak, double cheddar, salade, tomate, oignons caramélisés.</p>
+            <p class="typewriter text-xs opacity-90">Double steak, double cheddar, oignons caramélisés.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="burgers">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Cheese Burger</h3>
+        <div class="menu-card p-5" data-category="burgers">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Cheese Burger</h3>
                 <span class="price-tag">42 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Steak haché, cheddar, salade, tomate, oignons caramélisés.</p>
+            <p class="typewriter text-xs opacity-90">Steak haché, cheddar, oignons caramélisés.</p>
         </div>
 
-        <div class="menu-card p-6" data-category="burgers">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Chicken Burger</h3>
+        <div class="menu-card p-5" data-category="burgers">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Chicken Burger</h3>
                 <span class="price-tag">39 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Poulet, cheddar, salade, tomate, oignons caramélisés.</p>
+            <p class="typewriter text-xs opacity-90">Poulet, cheddar, oignons caramélisés.</p>
         </div>
 
         <!-- SANDWICHES -->
-        <div class="menu-card p-6" data-category="sandwiches">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich V. Hachée</h3>
+        <div class="menu-card p-5" data-category="sandwiches">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich V. Hachée</h3>
                 <span class="price-tag">58 MAD</span>
             </div>
-            <p class="typewriter text-xs opacity-90">Salade, tomate, oignons caramélisés, fromage, charcuterie. (Frites à part)</p>
+            <p class="typewriter text-xs opacity-90">Fromage, charcuterie, salade, tomate. (Frites à part)</p>
         </div>
 
-        <div class="menu-card p-6" data-category="sandwiches">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich Crispy</h3>
+        <div class="menu-card p-5" data-category="sandwiches">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich Crispy</h3>
                 <span class="price-tag">50 MAD</span>
             </div>
-            <p class="typewriter text-xs opacity-90">Poulet croustillant, fromage, charcuterie, salade, tomate. (Frites à part)</p>
+            <p class="typewriter text-xs opacity-90">Poulet croustillant, fromage, charcuterie. (Frites à part)</p>
         </div>
 
-        <div class="menu-card p-6" data-category="sandwiches">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich Dinde</h3>
+        <div class="menu-card p-5" data-category="sandwiches">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Sandwich Dinde</h3>
                 <span class="price-tag">47 MAD</span>
             </div>
-            <p class="typewriter text-xs opacity-90">Dinde grillée, fromage, charcuterie, salade, tomate. (Frites à part)</p>
+            <p class="typewriter text-xs opacity-90">Dinde grillée, fromage, charcuterie. (Frites à part)</p>
         </div>
 
         <!-- PIZZAS -->
-        <div class="menu-card p-6 border-double border-4 border-black shadow-[8px_8px_0px_#1a1a1a]" data-category="pizzas">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-3xl uppercase text-red-700">Pizza Broadway</h3>
-                <span class="price-tag text-lg">67 MAD</span>
-            </div>
-            <p class="typewriter text-sm font-bold uppercase tracking-widest text-black">Recette Signature</p>
-        </div>
-
-        <div class="menu-card p-6" data-category="pizzas">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza 4 Saisons</h3>
-                <span class="price-tag">56 MAD</span>
-            </div>
-            <p class="typewriter text-sm opacity-90">Mélange de légumes et ingrédients de saison.</p>
-        </div>
-
-        <div class="menu-card p-6" data-category="pizzas">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza V. Hachée</h3>
-                <span class="price-tag">53 MAD</span>
-            </div>
-        </div>
-
-        <div class="menu-card p-6" data-category="pizzas">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza Thon</h3>
-                <span class="price-tag">47 MAD</span>
-            </div>
-        </div>
-
-        <div class="menu-card p-6" data-category="pizzas">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza Marguerite</h3>
-                <span class="price-tag">42 MAD</span>
-            </div>
-            <p class="typewriter text-sm opacity-90">Sauce tomate, fromage, origan.</p>
-        </div>
-
-        <!-- PLATS & PASTICCIO -->
-        <div class="menu-card p-6 bg-[#1a1a1a] text-white" data-category="plats">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase text-yellow-500">Pasticcio Mixte</h3>
-                <span class="price-tag text-black">60 MAD</span>
-            </div>
-            <p class="typewriter text-sm opacity-80">Mélange de viandes, frites, béchamel et fromage gratiné.</p>
-        </div>
-
-        <div class="menu-card p-6" data-category="plats">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pasticcio V. H.</h3>
-                <span class="price-tag">53 MAD</span>
-            </div>
-        </div>
-
-        <div class="menu-card p-6" data-category="plats">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Pasticcio Dinde</h3>
-                <span class="price-tag">47 MAD</span>
-            </div>
-        </div>
-
-        <div class="menu-card p-6" data-category="plats">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="urban-font text-2xl uppercase border-l-4 border-red-600 pl-3">Plat Escalope</h3>
+        <div class="menu-card p-5 border-black bg-[#fff] md:col-span-2" data-category="pizzas">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="urban-font text-2xl md:text-3xl uppercase text-red-700">Pizza Broadway</h3>
                 <span class="price-tag">67 MAD</span>
             </div>
-            <p class="typewriter text-sm opacity-90">Escalope de poulet servie avec ses accompagnements.</p>
+            <p class="typewriter text-xs font-bold uppercase tracking-widest italic opacity-70 text-center">Recette Signature de l'Établissement</p>
+        </div>
+
+        <div class="menu-card p-5" data-category="pizzas">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza 4 Saisons</h3>
+                <span class="price-tag">56 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-5" data-category="pizzas">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza V. Hachée</h3>
+                <span class="price-tag">53 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-5" data-category="pizzas">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza Thon</h3>
+                <span class="price-tag">47 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-5" data-category="pizzas">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Pizza Marguerite</h3>
+                <span class="price-tag">42 MAD</span>
+            </div>
+        </div>
+
+        <!-- PASTICCO & PLATS -->
+        <div class="menu-card p-5 bg-[#1a1a1a] text-white" data-category="plats">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase text-yellow-500">Pasticcio Mixte</h3>
+                <span class="price-tag text-black">60 MAD</span>
+            </div>
+            <p class="typewriter text-xs opacity-70 italic">Viandes, frites, béchamel et fromage gratiné.</p>
+        </div>
+
+        <div class="menu-card p-5" data-category="plats">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Pasticcio V.H.</h3>
+                <span class="price-tag">53 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-5" data-category="plats">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Pasticcio Dinde</h3>
+                <span class="price-tag">47 MAD</span>
+            </div>
+        </div>
+
+        <div class="menu-card p-5" data-category="plats">
+            <div class="flex justify-between items-start gap-2 mb-2">
+                <h3 class="urban-font text-xl md:text-2xl uppercase border-l-4 border-red-600 pl-3">Plat Escalope</h3>
+                <span class="price-tag">67 MAD</span>
+            </div>
+            <p class="typewriter text-xs opacity-90">Servi avec accompagnements.</p>
         </div>
 
         <!-- BOISSONS -->
-        <div class="md:col-span-2 mt-8" data-category="boissons">
-            <div class="bg-black text-white p-6 border-4 border-black shadow-[10px_10px_0px_#f59e0b]">
-                <h3 class="urban-font text-4xl mb-6 text-yellow-500 border-b-2 border-yellow-500 pb-2">REFRESHMENTS</h3>
+        <div class="md:col-span-2 mt-4" data-category="boissons">
+            <div class="bg-black text-white p-6 border-4 border-black shadow-[6px_6px_0px_#f59e0b]">
+                <h3 class="urban-font text-3xl mb-6 text-yellow-500 border-b-2 border-yellow-500 pb-2">REFRESHMENTS</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4">
-                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
-                        <span class="typewriter text-lg uppercase">Coca-Cola (33cl)</span>
-                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    <div class="flex justify-between border-b border-white/20 pb-1">
+                        <span class="typewriter text-sm uppercase">Coca-Cola (33cl)</span>
+                        <span class="price-tag text-black text-xs">11 MAD</span>
                     </div>
-                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
-                        <span class="typewriter text-lg uppercase">Coca Zero (33cl)</span>
-                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    <div class="flex justify-between border-b border-white/20 pb-1">
+                        <span class="typewriter text-sm uppercase">Coca Zero (33cl)</span>
+                        <span class="price-tag text-black text-xs">11 MAD</span>
                     </div>
-                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
-                        <span class="typewriter text-lg uppercase">Fanta Orange</span>
-                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    <div class="flex justify-between border-b border-white/20 pb-1">
+                        <span class="typewriter text-sm uppercase">Fanta Orange</span>
+                        <span class="price-tag text-black text-xs">11 MAD</span>
                     </div>
-                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
-                        <span class="typewriter text-lg uppercase">Sprite</span>
-                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    <div class="flex justify-between border-b border-white/20 pb-1">
+                        <span class="typewriter text-sm uppercase">Sprite</span>
+                        <span class="price-tag text-black text-xs">11 MAD</span>
                     </div>
-                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
-                        <span class="typewriter text-lg uppercase">Hawaï</span>
-                        <span class="price-tag text-black text-sm">11 MAD</span>
+                    <div class="flex justify-between border-b border-white/20 pb-1">
+                        <span class="typewriter text-sm uppercase">Hawaï / Pom's</span>
+                        <span class="price-tag text-black text-xs">11 MAD</span>
                     </div>
-                    <div class="flex justify-between items-baseline border-b border-white/20 pb-1">
-                        <span class="typewriter text-lg uppercase">Pom's</span>
-                        <span class="price-tag text-black text-sm">11 MAD</span>
-                    </div>
-                    <div class="flex justify-between items-baseline mt-4 bg-yellow-500 text-black p-2 transform -rotate-1">
-                        <span class="typewriter font-bold text-lg uppercase">Eau Minérale</span>
-                        <span class="font-bold text-lg">7 MAD</span>
+                    <div class="flex justify-between mt-4 bg-yellow-500 text-black p-2 font-bold">
+                        <span class="typewriter text-sm uppercase">Eau Minérale</span>
+                        <span class="text-sm">7 MAD</span>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <footer class="mt-24 text-center border-t-4 border-black pt-12 pb-32 sm:pb-16 bg-[#1a1a1a] text-[#efdec1] -mx-4 sm:mx-0">
-        <h2 class="vintage-title text-4xl sm:text-5xl mb-6 text-yellow-500">BROADWAY MEKNÈS</h2>
-        <div class="typewriter text-xs sm:text-sm space-y-4 max-w-xs mx-auto px-4">
-            <p class="italic">"On ne sert pas juste de la nourriture, on sert l'histoire de Broadway."</p>
-            <div class="font-bold border-2 border-yellow-500 inline-block px-4 py-1">#BROADWAYMKS</div>
+    <!-- Footer Centré -->
+    <footer class="w-full mt-24 text-center border-t-4 border-black pt-12 pb-32 bg-[#1a1a1a] text-[#efdec1]">
+        <h2 class="vintage-title text-4xl mb-4 text-yellow-500">BROADWAY MEKNÈS</h2>
+        <div class="typewriter text-[10px] md:text-xs space-y-4 max-w-xs mx-auto px-4 opacity-80 uppercase tracking-widest">
+            <p>On ne sert pas juste de la nourriture, on sert l'histoire de Broadway.</p>
+            <div class="font-bold border border-yellow-500 inline-block px-4 py-1">#BROADWAYMKS</div>
         </div>
-        <p class="mt-10 urban-font text-lg tracking-widest opacity-50">FAST FOOD • GASTRO • VINTAGE</p>
+        <p class="mt-10 urban-font text-sm opacity-40">FAST FOOD • GASTRO • VINTAGE</p>
     </footer>
 
     <script>
@@ -376,18 +384,14 @@
             
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
             items.forEach(item => {
                 if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = item.getAttribute('data-category') === 'boissons' ? 'block' : 'block';
-                    if(window.innerWidth >= 768 && item.getAttribute('data-category') === 'boissons') {
-                        item.style.display = 'block';
-                    }
+                    item.style.display = 'block';
                     item.style.opacity = '0';
                     setTimeout(() => {
                         item.style.opacity = '1';
-                        item.style.transition = 'opacity 0.4s ease';
+                        item.style.transition = 'opacity 0.3s ease';
                     }, 50);
                 } else {
                     item.style.display = 'none';
